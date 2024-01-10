@@ -8,6 +8,7 @@ function SideBar() {
 				<button className="btn">Dashboard</button>
 				<button className="btn">Inbox</button>
 				<button className="btn">Today</button>
+				<button className="btn">All</button>
 				<button className="btn">Completed</button>
 			</div>
 			<div className="btn-group row mt-5">

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+// update and add more features to this
 function IndividualTodo({ todoTitle, todoComments }) {
 	return (
 		<li className="list-group-item d-flex justify-content-between align-items-start">
