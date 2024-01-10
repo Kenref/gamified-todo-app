@@ -1,7 +1,7 @@
 import { useState } from "react";
-import IndividualTodo from "./IndividualTodo";
+import IndividualTodo from "../components/IndividualTodo";
 
-function Todos() {
+function Inbox() {
 	return (
 		<div className="col-md-10 ml-sm-auto col-lg-10 px-4 pt-3">
 			<ul className="list-unstyled list-group">
@@ -15,4 +15,4 @@ function Todos() {
 	);
 }
 
-export default Todos;
+export default Inbox;

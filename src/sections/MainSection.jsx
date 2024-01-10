@@ -1,7 +1,7 @@
-import Todos from "./Todos";
+import Inbox from "./Inbox";
 
 function MainSection() {
-	return <Todos />;
+	return <Inbox />;
 }
 
 export default MainSection;
