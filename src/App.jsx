@@ -1,7 +1,6 @@
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import MainSection from "./components/Todos";
-import TodoPage from "./pages/TodoPage";
 
 function App() {
 	return (
