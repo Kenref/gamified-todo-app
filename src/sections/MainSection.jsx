@@ -1,7 +1,7 @@
-import Inbox from "./Inbox";
+import AllTasks from "./AllTasks";
 
-function MainSection() {
-	return <Inbox />;
+function MainSection({ tasks }) {
+	return <AllTasks tasks={tasks} />;
 }
 
 export default MainSection;

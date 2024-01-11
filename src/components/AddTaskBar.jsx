@@ -1,11 +1,23 @@
 import { useState } from "react";
 
-function AddTaskBar() {
-	// const [taskName, setTaskName] = useState({ TaskName });
+function AddTaskBar({ tasks, setTasks }) {
+	const [inputData, setInputData] = useState("");
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(inputData);
+		const newTask = { todoTitle: inputData, todoComments: "Comments" };
+		setTasks([...tasks, newTask]);
+	};
 
 	return (
-		<form className="d-flex">
-			<input className="form-control me-2" placeholder="Add Item" />
+		<form className="d-flex" onSubmit={(e) => handleSubmit(e)}>
+			<input
+				className="form-control me-2"
+				placeholder="Add Item"
+				value={inputData}
+				onChange={(e) => setInputData(e.target.value)}
+			/>
 			<button className="btn btn-outline-success" type="submit">
 				Add
 			</button>

@@ -23,9 +23,9 @@ IndividualTodo.propTypes = {
 	todoComments: PropTypes.string,
 };
 
-IndividualTodo.defaultProps = {
-	todoTitle: "Title",
-	todoComments: "comments",
-};
+// IndividualTodo.defaultProps = {
+// 	todoTitle: "Title",
+// 	todoComments: "comments",
+// };
 
 export default IndividualTodo;
