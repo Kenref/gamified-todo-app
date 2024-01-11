@@ -19,8 +19,6 @@ function App() {
 		},
 	]);
 
-	// const [taskName, setTaskName] = useState("");
-
 	return (
 		<div>
 			{/* Consider adding the navbar with ui elements to the bottom */}

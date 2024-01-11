@@ -1,8 +1,8 @@
-import AllTasks from "./AllTasks";
+import TaskList from "./TaskList";
 import PropTypes from "prop-types";
 
 function MainSection({ tasks }) {
-	return <AllTasks tasks={tasks} />;
+	return <TaskList tasks={tasks} />;
 }
 
 MainSection.propTypes = {

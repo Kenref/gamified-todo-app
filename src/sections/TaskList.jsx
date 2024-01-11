@@ -1,7 +1,7 @@
 import IndividualTodo from "../components/IndividualTodo";
 import PropTypes from "prop-types";
 
-function AllTasks({ tasks }) {
+function TaskList({ tasks }) {
 	return (
 		<div className="col-md-10 ml-sm-auto col-lg-10 px-4 pt-3">
 			<ul className="list-unstyled list-group">
@@ -18,8 +18,8 @@ function AllTasks({ tasks }) {
 	);
 }
 
-AllTasks.propTypes = {
+TaskList.propTypes = {
 	tasks: PropTypes.array,
 };
 
-export default AllTasks;
+export default TaskList;
