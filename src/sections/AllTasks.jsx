@@ -5,9 +5,9 @@ function AllTasks({ tasks }) {
 	return (
 		<div className="col-md-10 ml-sm-auto col-lg-10 px-4 pt-3">
 			<ul className="list-unstyled list-group">
-				{tasks.map((task, index) => (
+				{tasks.map((task) => (
 					<IndividualTodo
-						key={index}
+						key={task.id}
 						todoTitle={task.todoTitle}
 						todoComments={task.todoComments}
 					/>

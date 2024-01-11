@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function AddTaskBar({ tasks, setTasks }) {
 	const [inputData, setInputData] = useState("");
@@ -6,7 +7,11 @@ function AddTaskBar({ tasks, setTasks }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(inputData);
-		const newTask = { todoTitle: inputData, todoComments: "Comments" };
+		const newTask = {
+			id: uuidv4(),
+			todoTitle: inputData,
+			todoComments: "Comments",
+		};
 		setTasks([...tasks, newTask]);
 	};
 
