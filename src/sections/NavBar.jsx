@@ -1,6 +1,7 @@
 import AddTaskBar from "../components/AddTaskBar";
+import NavBarMessage from "../components/NavBarMessage";
 
-function NavBar({ navBarMessage, tasks, setTasks }) {
+function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 	return (
 		<>
 			<nav className="navbar sticky-top bg-body-tertiary pe-2 ps-5">
@@ -9,7 +10,10 @@ function NavBar({ navBarMessage, tasks, setTasks }) {
 				</a>
 				{/* TODO make it so that if the goal is > certain length it will do a ticker scroll effect */}
 				{/* Make it so that you can add todos to the goal section */}
-				<div className="navbar-text">{navBarMessage}</div>
+				<NavBarMessage
+					navBarMessage={navBarMessage}
+					setNavBarMessage={setNavBarMessage}
+				/>
 				<AddTaskBar tasks={tasks} setTasks={setTasks} />
 			</nav>
 		</>

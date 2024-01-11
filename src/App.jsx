@@ -5,7 +5,7 @@ import MainSection from "./sections/MainSection";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-	const [navBarMessage, setNavBarMessage] = useState("Todays focus here");
+	const [navBarMessage, setNavBarMessage] = useState("Click to add message");
 
 	//store tasks in state which is mapped in AllTasks.jsx - any new tasks are automatically shown on screen
 	const [tasks, setTasks] = useState([
@@ -24,7 +24,12 @@ function App() {
 	return (
 		<div>
 			{/* Consider adding the navbar with ui elements to the bottom */}
-			<NavBar navBarMessage={navBarMessage} tasks={tasks} setTasks={setTasks} />
+			<NavBar
+				navBarMessage={navBarMessage}
+				setNavBarMessage={setNavBarMessage}
+				tasks={tasks}
+				setTasks={setTasks}
+			/>
 			<div className="container-fluid">
 				<div className="row">
 					<SideBar />

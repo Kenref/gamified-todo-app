@@ -8,6 +8,7 @@ function AllTasks({ tasks }) {
 				{tasks.map((task) => (
 					<IndividualTodo
 						key={task.id}
+						id={`todo-${task.id}`} // Unique id for each todo item
 						todoTitle={task.todoTitle}
 						todoComments={task.todoComments}
 					/>

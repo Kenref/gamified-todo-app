@@ -29,3 +29,5 @@ IndividualTodo.propTypes = {
 // };
 
 export default IndividualTodo;
+
+//TODO delete item, edit item, add tags, other etc add date
