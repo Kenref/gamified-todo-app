@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 function NavBarMessage({ navBarMessage, setNavBarMessage }) {
 	const [isEditing, setIsEditing] = useState(false);
@@ -33,5 +34,10 @@ function NavBarMessage({ navBarMessage, setNavBarMessage }) {
 		</span>
 	);
 }
+
+NavBarMessage.propTypes = {
+	navBarMessage: PropTypes.string,
+	setNavBarMessage: PropTypes.func,
+};
 
 export default NavBarMessage;

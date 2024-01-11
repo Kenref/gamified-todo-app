@@ -1,5 +1,5 @@
-import { useState } from "react";
 import IndividualTodo from "../components/IndividualTodo";
+import PropTypes from "prop-types";
 
 function AllTasks({ tasks }) {
 	return (
@@ -17,5 +17,9 @@ function AllTasks({ tasks }) {
 		</div>
 	);
 }
+
+AllTasks.propTypes = {
+	tasks: PropTypes.array,
+};
 
 export default AllTasks;

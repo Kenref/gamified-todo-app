@@ -1,5 +1,6 @@
 import AddTaskBar from "../components/AddTaskBar";
 import NavBarMessage from "../components/NavBarMessage";
+import PropTypes from "prop-types";
 
 function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 	return (
@@ -19,5 +20,12 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 		</>
 	);
 }
+
+NavBar.propTypes = {
+	navBarMessage: PropTypes.string,
+	setNavBarMessage: PropTypes.func,
+	tasks: PropTypes.array,
+	setTasks: PropTypes.func,
+};
 
 export default NavBar;
