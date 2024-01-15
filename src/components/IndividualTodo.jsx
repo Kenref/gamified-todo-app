@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 // update and add more features to this
-function IndividualTodo({ todoTitle, todoComments }) {
+function IndividualTodo({ task }) {
 	return (
 		<li className="list-group-item d-flex justify-content-between align-items-start">
 			{/*change the style of this checkbox (copy pasted)  */}
@@ -11,22 +11,16 @@ function IndividualTodo({ todoTitle, todoComments }) {
 				id="firstCheckbox"
 			/>
 			<div className="ms-2 me-auto">
-				<div className="fw-bold">{todoTitle}</div>
-				{todoComments}
+				<div className="fw-bold">{task.title}</div>
+				{task.comments}
 			</div>
 		</li>
 	);
 }
 
 IndividualTodo.propTypes = {
-	todoTitle: PropTypes.string,
-	todoComments: PropTypes.string,
+	task: PropTypes.object,
 };
-
-// IndividualTodo.defaultProps = {
-// 	todoTitle: "Title",
-// 	todoComments: "comments",
-// };
 
 export default IndividualTodo;
 

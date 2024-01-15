@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import PropTypes from "prop-types";
 
 function SideBar({ folders, setFolders }) {
 	const plusIcon = (
@@ -35,7 +36,7 @@ function SideBar({ folders, setFolders }) {
 				</span>
 				{folders.map((folder) => (
 					<button key={folder.id} className="btn">
-						{folder.folderName}
+						{folder.name}
 					</button>
 				))}
 				{/* <button className="btn">Folder 1</button>
@@ -46,15 +47,10 @@ function SideBar({ folders, setFolders }) {
 		</div>
 	);
 }
-export default SideBar;
 
-// className="bg-primary col-2 h-100"
-{
-	/* <div>
-	<h1>Todo App</h1>
-	{folders.map((folder, index) => (
-		<Folder key={index} folderName={folder} />
-	))}
-	{/* Logic to add new folders */
-}
-// </div>; */}
+SideBar.propTypes = {
+	folders: PropTypes.array,
+	setFolders: PropTypes.func,
+};
+
+export default SideBar;

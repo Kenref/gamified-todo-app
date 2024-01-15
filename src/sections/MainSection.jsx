@@ -1,12 +1,12 @@
 import TaskList from "./TaskList";
 import PropTypes from "prop-types";
 
-function MainSection({ tasks }) {
-	return <TaskList tasks={tasks} />;
+function MainSection({ folders }) {
+	return <TaskList folders={folders} />;
 }
 
 MainSection.propTypes = {
-	tasks: PropTypes.array,
+	folders: PropTypes.array,
 };
 
 export default MainSection;
