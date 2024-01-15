@@ -7,6 +7,11 @@ import { v4 as uuidv4 } from "uuid";
 function App() {
 	const [navBarMessage, setNavBarMessage] = useState("Click to add message");
 
+	const [folders, setFolders] = useState([
+		{ id: uuidv4(), folderName: "folder1" },
+		{ id: uuidv4(), folderName: "folder2" },
+	]);
+
 	//store tasks in state which is mapped in AllTasks.jsx - any new tasks are automatically shown on screen
 	const [tasks, setTasks] = useState([
 		{ id: uuidv4(), todoTitle: "Task 1", todoComments: "Comments here" },
@@ -18,7 +23,7 @@ function App() {
 			todoComments: "use a state to map out",
 		},
 	]);
-
+	//TODO move tasklist to individual components
 	return (
 		<div>
 			{/* Consider adding the navbar with ui elements to the bottom */}
@@ -30,7 +35,7 @@ function App() {
 			/>
 			<div className="container-fluid">
 				<div className="row">
-					<SideBar />
+					<SideBar folders={folders} setFolders={setFolders} />
 					<MainSection tasks={tasks} />
 				</div>
 			</div>

@@ -1,4 +1,6 @@
-function SideBar() {
+import { v4 as uuidv4 } from "uuid";
+
+function SideBar({ folders, setFolders }) {
 	const plusIcon = (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -28,13 +30,18 @@ function SideBar() {
 				<button className="btn">Completed</button>
 			</div>
 			<div className="btn-group row mt-5">
-				<span className="text-center d-flex justify-content-between">
+				<span className="text-center">
 					<strong>Folders</strong>
-					<button className="btn">{plusIcon}</button>
 				</span>
-				<button className="btn">Folder 1</button>
+				{folders.map((folder) => (
+					<button key={folder.id} className="btn">
+						{folder.folderName}
+					</button>
+				))}
+				{/* <button className="btn">Folder 1</button>
 				<button className="btn">Folder 2</button>
-				<button className="btn">Folder 3</button>
+				<button className="btn">Folder 3</button> */}
+				<button className="btn border">{plusIcon}</button>
 			</div>
 		</div>
 	);
@@ -42,3 +49,12 @@ function SideBar() {
 export default SideBar;
 
 // className="bg-primary col-2 h-100"
+{
+	/* <div>
+	<h1>Todo App</h1>
+	{folders.map((folder, index) => (
+		<Folder key={index} folderName={folder} />
+	))}
+	{/* Logic to add new folders */
+}
+// </div>; */}
