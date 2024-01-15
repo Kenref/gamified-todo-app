@@ -39,10 +39,7 @@ function SideBar({ folders, setFolders }) {
 						{folder.name}
 					</button>
 				))}
-				{/* <button className="btn">Folder 1</button>
-				<button className="btn">Folder 2</button>
-				<button className="btn">Folder 3</button> */}
-				<button className="btn border">{plusIcon}</button>
+				<button className="btn border bg-primary text-white">{plusIcon}</button>
 			</div>
 		</div>
 	);

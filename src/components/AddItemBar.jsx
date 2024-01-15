@@ -2,7 +2,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
 
-function AddTaskBar({ tasks, setTasks }) {
+function AddItemBar({ tasks, setTasks }) {
 	const [inputData, setInputData] = useState("");
 
 	const handleSubmit = (e) => {
@@ -31,9 +31,9 @@ function AddTaskBar({ tasks, setTasks }) {
 	);
 }
 
-AddTaskBar.propTypes = {
+AddItemBar.propTypes = {
 	tasks: PropTypes.array,
 	setTasks: PropTypes.func,
 };
 
-export default AddTaskBar;
+export default AddItemBar;

@@ -1,4 +1,4 @@
-import AddTaskBar from "../components/AddTaskBar";
+import AddItemBar from "../components/AddItemBar";
 import NavBarMessage from "../components/NavBarMessage";
 import PropTypes from "prop-types";
 
@@ -15,7 +15,7 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 					navBarMessage={navBarMessage}
 					setNavBarMessage={setNavBarMessage}
 				/>
-				<AddTaskBar tasks={tasks} setTasks={setTasks} />
+				<AddItemBar tasks={tasks} setTasks={setTasks} />
 			</nav>
 		</>
 	);
