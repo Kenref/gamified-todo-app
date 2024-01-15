@@ -13,6 +13,7 @@ function SideBar() {
 		</svg>
 	);
 
+	//try to remove row from the divs if not needed
 	return (
 		<div
 			className="col-md-2 d-none d-md-block bg-body-tertiary"
@@ -29,7 +30,7 @@ function SideBar() {
 			<div className="btn-group row mt-5">
 				<span className="text-center d-flex justify-content-between">
 					<strong>Folders</strong>
-					{plusIcon}
+					<button className="btn">{plusIcon}</button>
 				</span>
 				<button className="btn">Folder 1</button>
 				<button className="btn">Folder 2</button>
