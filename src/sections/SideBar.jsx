@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
+import { useState } from "react";
+import Modal from "../components/Modal";
 
 function SideBar({ folders, setFolders }) {
 	const plusIcon = (
@@ -15,6 +17,8 @@ function SideBar({ folders, setFolders }) {
 			<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
 		</svg>
 	);
+
+	const [showModal, setShowModal] = useState(false);
 
 	//try to remove row from the divs if not needed
 	return (
@@ -39,7 +43,18 @@ function SideBar({ folders, setFolders }) {
 						{folder.name}
 					</button>
 				))}
-				<button className="btn border bg-primary text-white">{plusIcon}</button>
+				<button
+					className="btn border bg-primary text-white"
+					onClick={() => setShowModal(!showModal)}
+				>
+					{plusIcon}
+				</button>
+				<Modal
+					title={"title"}
+					body={"body"}
+					showModal={showModal}
+					setShowModal={setShowModal}
+				/>
 			</div>
 		</div>
 	);
