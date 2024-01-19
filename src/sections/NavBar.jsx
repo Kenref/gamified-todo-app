@@ -1,8 +1,12 @@
+import Modal from "../components/Modal";
 import AddItemBar from "../components/AddItemBar";
 import NavBarMessage from "../components/NavBarMessage";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
+	const [showModal, setShowModal] = useState(false);
+
 	return (
 		<>
 			<nav className="navbar sticky-top bg-body-tertiary pe-2 ps-5">
@@ -15,7 +19,19 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 					navBarMessage={navBarMessage}
 					setNavBarMessage={setNavBarMessage}
 				/>
-				<AddItemBar tasks={tasks} setTasks={setTasks} />
+				<button
+					className="btn border bg-primary text-white"
+					onClick={() => setShowModal(!showModal)}
+				>
+					Add Task
+				</button>
+				<Modal
+					title={"Add new Task"}
+					body={"Put form here"}
+					showModal={showModal}
+					setShowModal={setShowModal}
+				/>
+				{/* <AddItemBar tasks={tasks} setTasks={setTasks} /> */}
 			</nav>
 		</>
 	);

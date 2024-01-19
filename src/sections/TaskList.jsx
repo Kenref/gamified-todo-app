@@ -38,3 +38,5 @@ TaskList.propTypes = {
 };
 
 export default TaskList;
+
+// include a quick add section when you click below the tasks
