@@ -49,13 +49,14 @@ function SideBar({ folders, setFolders }) {
 				>
 					{plusIcon}
 				</button>
-				<Modal
-					title={"Add new folder"}
-					// i can put any thing in the body section such as a form component
-					body={"Put the form here"}
-					showModal={showModal}
-					setShowModal={setShowModal}
-				/>
+				{showModal && (
+					<Modal
+						title={"Add new folder"}
+						body={"Put the form here"}
+						showModal={showModal}
+						setShowModal={setShowModal}
+					/>
+				)}
 			</div>
 		</div>
 	);

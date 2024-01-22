@@ -9,7 +9,7 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 
 	return (
 		<>
-			<nav className="navbar sticky-top bg-body-tertiary pe-2 ps-5">
+			<nav className=" navbar sticky-top bg-body-tertiary pe-2 ps-5">
 				<a href="#" className="navbar-brand">
 					Website Logo
 				</a>
@@ -25,12 +25,14 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 				>
 					Add Task
 				</button>
-				<Modal
-					title={"Add new Task"}
-					body={"Put form here"}
-					showModal={showModal}
-					setShowModal={setShowModal}
-				/>
+				{showModal && (
+					<Modal
+						title={"Add new Task"}
+						body={"Put form here"}
+						showModal={showModal}
+						setShowModal={setShowModal}
+					/>
+				)}
 				{/* <AddItemBar tasks={tasks} setTasks={setTasks} /> */}
 			</nav>
 		</>
