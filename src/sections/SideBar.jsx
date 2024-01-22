@@ -18,7 +18,37 @@ function SideBar({ folders, setFolders }) {
 		</svg>
 	);
 
+	//TODO consider merging all of the form variables
+	const modalHeader = "Add new folder";
+
+	const [formData, setFormData] = useState({ folderName: "" });
+
+	const formID = "folderForm";
+
 	const [showModal, setShowModal] = useState(false);
+
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+		setFolders([...folders, { id: uuidv4(), name: formData.folderName }]);
+		setShowModal(false);
+		setFormData({ folderName: "" });
+	};
+
+	const folderForm = (
+		<form onSubmit={handleFormSubmit} id="folderForm">
+			<div>
+				<label htmlFor="folderName" className="form-label">
+					Folder Name:
+				</label>
+				<input
+					className="form-control"
+					id="folderName"
+					value={formData.folderName}
+					onChange={(e) => setFormData({ folderName: e.target.value })}
+				/>
+			</div>
+		</form>
+	);
 
 	//try to remove row from the divs if not needed
 	return (
@@ -51,8 +81,9 @@ function SideBar({ folders, setFolders }) {
 				</button>
 				{showModal && (
 					<Modal
-						title={"Add new folder"}
-						body={"Put the form here"}
+						title={modalHeader}
+						body={folderForm}
+						formID={formID}
 						showModal={showModal}
 						setShowModal={setShowModal}
 					/>

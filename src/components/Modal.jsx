@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 
-function Modal({ title, body, showModal, setShowModal }) {
+function Modal({ title, body, formID, showModal, setShowModal }) {
 	return (
 		<div
 			className="modal-backdrop"
 			style={{
 				backgroundColor: "rgba(0, 0, 0, 0.5)",
 			}}
-			onClick={() => setShowModal(false)}
+			// TODO when you click outside it closes the modal
+			// onClick={() => setShowModal(false)}
 		>
 			<div
 				className={`modal ${showModal ? "show" : ""}`}
@@ -33,7 +34,7 @@ function Modal({ title, body, showModal, setShowModal }) {
 							>
 								Cancel
 							</button>
-							<button type="button" className="btn btn-primary">
+							<button className="btn btn-primary" type="submit" form={formID}>
 								Add
 							</button>
 						</div>
@@ -45,8 +46,8 @@ function Modal({ title, body, showModal, setShowModal }) {
 }
 
 Modal.propTypes = {
-	title: PropTypes.string,
-	body: PropTypes.string,
+	// title: PropTypes.string,
+	// body: PropTypes.string,
 	showModal: PropTypes.bool,
 	setShowModal: PropTypes.func,
 };
