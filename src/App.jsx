@@ -17,8 +17,20 @@ function App() {
 	const [tasks, setTasks] = useState([
 		{
 			id: uuidv4(),
-			folderID: "folder1",
+			folderID: folders[0].id,
 			name: "testing for folder1",
+			comments: "comments here",
+		},
+		{
+			id: uuidv4(),
+			folderID: folders[0].id,
+			name: "tester tester",
+			comments: "comments here",
+		},
+		{
+			id: uuidv4(),
+			folderID: folders[0].id,
+			name: "testing ",
 			comments: "comments here",
 		},
 		{
@@ -27,11 +39,20 @@ function App() {
 			name: "testing for folder2",
 			comments: "comments here",
 		},
+		{
+			id: uuidv4(),
+			folderID: folders[2].id,
+			name: "testing for folder3",
+			comments: "comments here",
+		},
 	]);
 
-	//store tasks in state which is mapped in AllTasks.jsx - any new tasks are automatically shown on screen
+	const [activeFolderID, setActiveFolderID] = useState(null);
 
-	//TODO move tasklist to individual components
+	const getFolder = (folderID) => {
+		return tasks.filter((task) => task.folderID === folderID);
+	};
+
 	return (
 		<div>
 			{/* Consider adding the navbar with ui elements to the bottom */}
@@ -41,8 +62,18 @@ function App() {
 			/>
 			<div className="container-fluid">
 				<div className="row">
-					<SideBar folders={folders} setFolders={setFolders} />
-					<MainSection folders={folders} tasks={tasks} setTasks={setTasks} />
+					<SideBar
+						folders={folders}
+						setFolders={setFolders}
+						setActiveFolderID={setActiveFolderID}
+					/>
+					<MainSection
+						folders={folders}
+						//filter folder id to be same as activeFolderID
+						tasks={tasks.filter((task) => task.folderID === activeFolderID)}
+						setTasks={setTasks}
+						getFolder={getFolder}
+					/>
 				</div>
 			</div>
 		</div>
@@ -50,7 +81,5 @@ function App() {
 }
 
 export default App;
-
-// nav bar: a goal for the day/focus , tasks, dashboard,
 
 // sticky top

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import Modal from "../components/Modal";
 
-function SideBar({ folders, setFolders }) {
+function SideBar({ folders, setFolders, setActiveFolderID }) {
 	const plusIcon = (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,11 @@ function SideBar({ folders, setFolders }) {
 					<strong>Folders</strong>
 				</span>
 				{folders.map((folder) => (
-					<button key={folder.id} className="btn">
+					<button
+						key={folder.id}
+						className="btn"
+						onClick={() => setActiveFolderID(folder.id)}
+					>
 						{folder.name}
 					</button>
 				))}

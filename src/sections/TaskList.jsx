@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
-function TaskList({ folders, tasks, setTasks }) {
+function TaskList({ folders, tasks, setTasks, getFolder }) {
 	return (
 		<div className="col-md-10 ml-sm-auto col-lg-10 px-4 pt-3">
 			<ul className="list-unstyled list-group">
