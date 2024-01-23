@@ -49,10 +49,6 @@ function App() {
 
 	const [activeFolderID, setActiveFolderID] = useState(null);
 
-	const getFolder = (folderID) => {
-		return tasks.filter((task) => task.folderID === folderID);
-	};
-
 	return (
 		<div>
 			{/* Consider adding the navbar with ui elements to the bottom */}
@@ -72,7 +68,6 @@ function App() {
 						//filter folder id to be same as activeFolderID
 						tasks={tasks.filter((task) => task.folderID === activeFolderID)}
 						setTasks={setTasks}
-						getFolder={getFolder}
 					/>
 				</div>
 			</div>
