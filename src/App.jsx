@@ -11,6 +11,22 @@ function App() {
 	const [folders, setFolders] = useState([
 		{ id: uuidv4(), name: "folder1" },
 		{ id: uuidv4(), name: "folder2" },
+		{ id: uuidv4(), name: "folder3" },
+	]);
+
+	const [tasks, setTasks] = useState([
+		{
+			id: uuidv4(),
+			folderID: "folder1",
+			name: "testing for folder1",
+			comments: "comments here",
+		},
+		{
+			id: uuidv4(),
+			folderID: folders[1].id,
+			name: "testing for folder2",
+			comments: "comments here",
+		},
 	]);
 
 	//store tasks in state which is mapped in AllTasks.jsx - any new tasks are automatically shown on screen
@@ -26,7 +42,7 @@ function App() {
 			<div className="container-fluid">
 				<div className="row">
 					<SideBar folders={folders} setFolders={setFolders} />
-					<MainSection folders={folders} />
+					<MainSection folders={folders} tasks={tasks} setTasks={setTasks} />
 				</div>
 			</div>
 		</div>

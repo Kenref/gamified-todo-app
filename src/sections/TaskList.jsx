@@ -3,21 +3,7 @@ import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
-function TaskList({ folders }) {
-	const [tasks, setTasks] = useState([
-		{ id: uuidv4(), title: "Task 1", comments: "Comments here" },
-		{ id: uuidv4(), title: "Task 2", comments: "Comments here" },
-		{
-			id: uuidv4(),
-			title: "I can change this to whatever I want",
-			comments: "use a state to map out",
-		},
-	]);
-
-	// const addTask = (task) => {
-	// 	setTasks([...tasks, task]);
-	// };
-
+function TaskList({ folders, tasks, setTasks }) {
 	return (
 		<div className="col-md-10 ml-sm-auto col-lg-10 px-4 pt-3">
 			<ul className="list-unstyled list-group">
