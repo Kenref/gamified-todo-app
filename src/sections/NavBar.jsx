@@ -4,11 +4,12 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
+function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks, folders }) {
 	const modalHeader = "Add new Task";
 	const [formData, setFormData] = useState({
 		taskName: "",
 		taskDescription: "",
+		folderID: "",
 	});
 	const formID = "taskForm";
 	const [showModal, setShowModal] = useState(false);
@@ -21,10 +22,11 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 				id: uuidv4(),
 				name: formData.taskName,
 				description: formData.taskDescription,
+				folderID: formData.folderID,
 			},
 		]);
 		setShowModal(false);
-		setFormData({ taskName: "", taskDescription: "" });
+		setFormData({ taskName: "", taskDescription: "", folderID: "" });
 	};
 
 	const taskForm = (
@@ -34,6 +36,8 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 					Task Name:
 				</label>
 				<input
+					//TODO replace required with own styling for required fields
+					required
 					className="form-control"
 					id="taskName"
 					value={formData.taskName}
@@ -54,6 +58,28 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 						setFormData({ ...formData, taskDescription: e.target.value })
 					}
 				/>
+			</div>
+			<div className="mb-3">
+				<label htmlFor="taskFolder" className="form-label">
+					Folder:
+				</label>
+				<select
+					//TODO replace required with own styling for required fields
+					required
+					className="form-select"
+					id="taskFolder"
+					value={formData.folderID}
+					onChange={(e) =>
+						setFormData({ ...formData, folderID: e.target.value })
+					}
+				>
+					<option value={""}>Select a folder</option>
+					{folders.map((folder) => (
+						<option value={folder.id} key={folder.id}>
+							{folder.name}
+						</option>
+					))}
+				</select>
 			</div>
 			<em>Date etc to be here</em>
 		</form>
@@ -95,6 +121,7 @@ NavBar.propTypes = {
 	setNavBarMessage: PropTypes.func,
 	tasks: PropTypes.array,
 	setTasks: PropTypes.func,
+	folders: PropTypes.array,
 };
 
 export default NavBar;

@@ -53,3 +53,5 @@ Modal.propTypes = {
 };
 
 export default Modal;
+
+//TODO modal closes when clicked outside of

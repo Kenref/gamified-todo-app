@@ -55,6 +55,9 @@ function App() {
 			<NavBar
 				navBarMessage={navBarMessage}
 				setNavBarMessage={setNavBarMessage}
+				folders={folders}
+				tasks={tasks}
+				setTasks={setTasks}
 			/>
 			<div className="container-fluid">
 				<div className="row">
