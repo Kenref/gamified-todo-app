@@ -58,7 +58,7 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 	//try to remove row from the divs if not needed
 	return (
 		<div
-			className="col-md-2 d-none d-md-block bg-body-tertiary"
+			className="col-md-2 d-none d-md-block sidebar-colour"
 			style={{ height: "100vh" }}
 		>
 			<div className="btn-group row mt-3">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NavBar from "./sections/NavBar";
 import SideBar from "./sections/SideBar";
 import MainSection from "./sections/MainSection";
@@ -13,7 +13,6 @@ function App() {
 		{ id: uuidv4(), name: "folder2" },
 		{ id: uuidv4(), name: "folder3" },
 	]);
-
 	const [tasks, setTasks] = useState([
 		{
 			id: uuidv4(),

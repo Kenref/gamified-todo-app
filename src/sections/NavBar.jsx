@@ -4,7 +4,14 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks, folders }) {
+function NavBar({
+	navBarMessage,
+	setNavBarMessage,
+	tasks,
+	setTasks,
+	folders,
+	colourPallate,
+}) {
 	const modalHeader = "Add new Task";
 	const [formData, setFormData] = useState({
 		taskName: "",
@@ -87,7 +94,7 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks, folders }) {
 
 	return (
 		<>
-			<nav className=" navbar sticky-top bg-body-tertiary pe-2 ps-5">
+			<nav className=" navbar sticky-top pe-2 ps-5 navbar-colour">
 				<a href="#" className="navbar-brand">
 					Website Logo
 				</a>
