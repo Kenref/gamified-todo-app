@@ -1,11 +1,63 @@
 import Modal from "../components/Modal";
-import AddItemBar from "../components/AddItemBar";
 import NavBarMessage from "../components/NavBarMessage";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
+	const modalHeader = "Add new Task";
+	const [formData, setFormData] = useState({
+		taskName: "",
+		taskDescription: "",
+	});
+	const formID = "taskForm";
 	const [showModal, setShowModal] = useState(false);
+
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+		setTasks([
+			...tasks,
+			{
+				id: uuidv4(),
+				name: formData.taskName,
+				description: formData.taskDescription,
+			},
+		]);
+		setShowModal(false);
+		setFormData({ taskName: "", taskDescription: "" });
+	};
+
+	const taskForm = (
+		<form onSubmit={handleFormSubmit} id={formID}>
+			<div className="mb-3">
+				<label htmlFor="taskName" className="form-label">
+					Task Name:
+				</label>
+				<input
+					className="form-control"
+					id="taskName"
+					value={formData.taskName}
+					onChange={(e) =>
+						setFormData({ ...formData, taskName: e.target.value })
+					}
+				/>
+			</div>
+			<div className="mb-3">
+				<label htmlFor="taskDescription" className="form-label">
+					Task Description:
+				</label>
+				<input
+					className="form-control"
+					id="taskDescription"
+					value={formData.taskDescription}
+					onChange={(e) =>
+						setFormData({ ...formData, taskDescription: e.target.value })
+					}
+				/>
+			</div>
+			<em>Date etc to be here</em>
+		</form>
+	);
 
 	return (
 		<>
@@ -13,8 +65,7 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 				<a href="#" className="navbar-brand">
 					Website Logo
 				</a>
-				{/* TODO make it so that if the goal is > certain length it will do a ticker scroll effect */}
-				{/* Make it so that you can add todos to the goal section */}
+
 				<NavBarMessage
 					navBarMessage={navBarMessage}
 					setNavBarMessage={setNavBarMessage}
@@ -27,13 +78,13 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks }) {
 				</button>
 				{showModal && (
 					<Modal
-						title={"Add new Task"}
-						body={"Put form here"}
+						title={modalHeader}
+						body={taskForm}
+						formID={formID}
 						showModal={showModal}
 						setShowModal={setShowModal}
 					/>
 				)}
-				{/* <AddItemBar tasks={tasks} setTasks={setTasks} /> */}
 			</nav>
 		</>
 	);
@@ -47,3 +98,7 @@ NavBar.propTypes = {
 };
 
 export default NavBar;
+
+// TODO make it so that if the goal char length is > certain length it will do a ticker scroll effect */
+
+//  TODO Make it so that you can add todos to the goal section */

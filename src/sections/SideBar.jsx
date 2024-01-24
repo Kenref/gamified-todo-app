@@ -19,12 +19,17 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 	);
 
 	//TODO consider merging all of the form variables
+
+	// const [modalState, setModalState] = useState({
+	// 	header: "Add new folder",
+	// 	formData: "{folderName: ""}",
+	// 	formID: "folderForm",
+	// 	showModal: false,
+	// });
+
 	const modalHeader = "Add new folder";
-
 	const [formData, setFormData] = useState({ folderName: "" });
-
 	const formID = "folderForm";
-
 	const [showModal, setShowModal] = useState(false);
 
 	const handleFormSubmit = (e) => {
@@ -34,8 +39,8 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 		setFormData({ folderName: "" });
 	};
 
-	const folderForm = (
-		<form onSubmit={handleFormSubmit} id="folderForm">
+	const form = (
+		<form onSubmit={handleFormSubmit} id={formID}>
 			<div>
 				<label htmlFor="folderName" className="form-label">
 					Folder Name:
@@ -86,7 +91,7 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 				{showModal && (
 					<Modal
 						title={modalHeader}
-						body={folderForm}
+						body={form}
 						formID={formID}
 						showModal={showModal}
 						setShowModal={setShowModal}
@@ -100,6 +105,7 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 SideBar.propTypes = {
 	folders: PropTypes.array,
 	setFolders: PropTypes.func,
+	setActiveFolderID: PropTypes.func,
 };
 
 export default SideBar;

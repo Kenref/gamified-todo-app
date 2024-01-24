@@ -19,31 +19,31 @@ function App() {
 			id: uuidv4(),
 			folderID: folders[0].id,
 			name: "testing for folder1",
-			comments: "comments here",
+			description: "description here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[0].id,
 			name: "tester tester",
-			comments: "comments here",
+			description: "description here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[0].id,
 			name: "testing ",
-			comments: "comments here",
+			description: "description here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[1].id,
 			name: "testing for folder2",
-			comments: "comments here",
+			description: "description here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[2].id,
 			name: "testing for folder3",
-			comments: "comments here",
+			description: "description here",
 		},
 	]);
 

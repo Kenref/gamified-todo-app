@@ -12,7 +12,7 @@ function IndividualTodo({ task }) {
 			/>
 			<div className="ms-2 me-auto">
 				<div className="fw-bold">{task.name}</div>
-				{task.comments}
+				{task.description}
 			</div>
 		</li>
 	);
@@ -25,4 +25,4 @@ IndividualTodo.propTypes = {
 export default IndividualTodo;
 
 //TODO delete item, edit item, add tags, other etc add date
-//TODO when clicked on the name or comments, will be able to edit it
+//TODO when clicked on the name or description, will be able to edit it
