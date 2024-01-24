@@ -1,11 +1,20 @@
+/* colour pallate added here for easy changing */
+
 .navbar-colour {
-	background-color: blue;
+	background-color: #f9fdf3;
 }
 
 .sidebar-colour {
-	background-color: red;
+	background-color: #91d63b;
 }
 
 .tasklist-colour {
-	background-color: orange;
+	background-color: #f9fdf3;
 }
+
+.accent-colour {
+	background-color: #59b7dc;
+}
+
+/* #91d63b
+#86e6d6 */
