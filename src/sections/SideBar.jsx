@@ -60,7 +60,7 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 		<div className="sidebar-colour ps-3" style={{ height: "100vh" }}>
 			{/* TODO consider adding a accented background colour for name/logo */}
 			<h4 className="pt-3">APP NAME</h4>
-			<div className="btn-group row mt-3 text-start">
+			<div className="row mt-3 text-start">
 				<strong>Views</strong>
 				<button className="btn">Dashboard</button>
 				<button className="btn ">Inbox</button>
@@ -68,7 +68,7 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 				<button className="btn">All</button>
 				<button className="btn">Completed</button>
 			</div>
-			<div className="btn-group row mt-5 ">
+			<div className=" row mt-5 ">
 				<span className="d-flex justify-content-between align-items-center ">
 					<strong>Folders</strong>
 					<button

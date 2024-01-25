@@ -8,9 +8,9 @@ function App() {
 	const [navBarMessage, setNavBarMessage] = useState("Click to add message");
 
 	const [folders, setFolders] = useState([
-		{ id: uuidv4(), name: "folder1" },
-		{ id: uuidv4(), name: "folder2" },
-		{ id: uuidv4(), name: "folder3" },
+		{ id: uuidv4(), name: "Folder 1" },
+		{ id: uuidv4(), name: "Folder 2" },
+		{ id: uuidv4(), name: "Folder 3" },
 	]);
 	const [tasks, setTasks] = useState([
 		{
@@ -71,6 +71,7 @@ function App() {
 						//filter folder id to be same as activeFolderID
 						tasks={tasks.filter((task) => task.folderID === activeFolderID)}
 						setTasks={setTasks}
+						activeFolderID={activeFolderID}
 					/>
 				</div>
 			</div>
