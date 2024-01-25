@@ -62,11 +62,11 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 			<h4 className="pt-3">APP NAME</h4>
 			<div className="btn-group row mt-3 text-start">
 				<strong>Views</strong>
-				<button className="btn text-start">Dashboard</button>
-				<button className="btn text-start">Inbox</button>
-				<button className="btn text-start">Today</button>
-				<button className="btn text-start">All</button>
-				<button className="btn text-start">Completed</button>
+				<button className="btn">Dashboard</button>
+				<button className="btn ">Inbox</button>
+				<button className="btn">Today</button>
+				<button className="btn">All</button>
+				<button className="btn">Completed</button>
 			</div>
 			<div className="btn-group row mt-5 ">
 				<span className="d-flex justify-content-between align-items-center ">
@@ -82,7 +82,7 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 				{folders.map((folder) => (
 					<button
 						key={folder.id}
-						className="btn text-start"
+						className="btn"
 						onClick={() => setActiveFolderID(folder.id)}
 					>
 						{folder.name}

@@ -22,3 +22,13 @@ body {
 .accent-colour {
 	background-color: #68e156;
 }
+
+.btn {
+	text-align: start;
+	background-color: var(--secondary);
+	transition: background-color 0.3s;
+}
+
+.btn:hover {
+	background-color: var(--primary);
+}

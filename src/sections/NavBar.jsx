@@ -96,11 +96,7 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks, folders }) {
 					navBarMessage={navBarMessage}
 					setNavBarMessage={setNavBarMessage}
 				/>
-				<button
-					className="btn border"
-					style={{ backgroundColor: "#95e18a" }}
-					onClick={() => setShowModal(!showModal)}
-				>
+				<button className="btn" onClick={() => setShowModal(!showModal)}>
 					Add Task
 				</button>
 				{showModal && (
