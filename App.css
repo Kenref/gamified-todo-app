@@ -1,20 +1,24 @@
+:root {
+	--text: #101a0f;
+	--background: #f9fdf3;
+	--primary: #60c351;
+	--secondary: #95e18a;
+	--accent: #68e156;
+}
 /* colour pallate added here for easy changing */
-
-.navbar-colour {
-	background-color: #f9fdf3;
+body {
+	color: var(--text);
 }
 
 .sidebar-colour {
-	background-color: #91d63b;
+	background-color: var(--secondary);
 }
 
-.tasklist-colour {
-	background-color: #f9fdf3;
+.background-colour {
+	/* background-color: #f9fdf3; */
+	background-color: var(--background);
 }
 
 .accent-colour {
-	background-color: #59b7dc;
+	background-color: #68e156;
 }
-
-/* #91d63b
-#86e6d6 */

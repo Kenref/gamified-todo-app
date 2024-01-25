@@ -94,17 +94,18 @@ function NavBar({
 
 	return (
 		<>
-			<nav className=" navbar sticky-top pe-2 ps-5 navbar-colour">
-				<a href="#" className="navbar-brand">
+			<nav className=" navbar sticky-top pe-2 ps-5">
+				{/* <a href="#" className="navbar-brand">
 					Website Logo
-				</a>
+				</a> */}
 
 				<NavBarMessage
 					navBarMessage={navBarMessage}
 					setNavBarMessage={setNavBarMessage}
 				/>
 				<button
-					className="btn border bg-primary text-white"
+					className="btn border"
+					style={{ backgroundColor: "#95e18a" }}
 					onClick={() => setShowModal(!showModal)}
 				>
 					Add Task

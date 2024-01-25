@@ -57,33 +57,32 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 
 	//try to remove row from the divs if not needed
 	return (
-		<div
-			className="col-md-2 d-none d-md-block sidebar-colour"
-			style={{ height: "100vh" }}
-		>
-			<div className="btn-group row mt-3">
-				<strong className="text-center">Views</strong>
-				<button className="btn">Dashboard</button>
-				<button className="btn">Inbox</button>
-				<button className="btn">Today</button>
-				<button className="btn">All</button>
-				<button className="btn">Completed</button>
+		<div className="sidebar-colour px-3" style={{ height: "100vh" }}>
+			{/* TODO consider adding a accented background colour for name/logo */}
+			<h4 className="pt-3">APP NAME</h4>
+			<div className="btn-group row mt-3 text-start">
+				<strong>Views</strong>
+				<button className="btn text-start">Dashboard</button>
+				<button className="btn text-start">Inbox</button>
+				<button className="btn text-start">Today</button>
+				<button className="btn text-start">All</button>
+				<button className="btn text-start">Completed</button>
 			</div>
-			<div className="btn-group row mt-5">
-				<span className="text-center">
+			<div className="btn-group row mt-5 ">
+				<span>
 					<strong>Folders</strong>
 				</span>
 				{folders.map((folder) => (
 					<button
 						key={folder.id}
-						className="btn"
+						className="btn text-start"
 						onClick={() => setActiveFolderID(folder.id)}
 					>
 						{folder.name}
 					</button>
 				))}
 				<button
-					className="btn border bg-primary text-white"
+					className="btn text-white text-start"
 					onClick={() => setShowModal(!showModal)}
 				>
 					{plusIcon}

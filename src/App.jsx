@@ -49,21 +49,23 @@ function App() {
 	const [activeFolderID, setActiveFolderID] = useState(null);
 
 	return (
-		<div>
-			{/* Consider adding the navbar with ui elements to the bottom */}
-			<NavBar
-				navBarMessage={navBarMessage}
-				setNavBarMessage={setNavBarMessage}
-				folders={folders}
-				tasks={tasks}
-				setTasks={setTasks}
-			/>
-			<div className="container-fluid">
-				<div className="row">
+		<div className="container-fluid">
+			<div className="row">
+				{/* Consider adding the navbar with ui elements to the bottom */}
+				<div className="col-md-2 col-xxl-1 d-none d-md-block px-0">
 					<SideBar
 						folders={folders}
 						setFolders={setFolders}
 						setActiveFolderID={setActiveFolderID}
+					/>
+				</div>
+				<div className="col-md-10 col-xxl-11 px-0  background-colour">
+					<NavBar
+						navBarMessage={navBarMessage}
+						setNavBarMessage={setNavBarMessage}
+						folders={folders}
+						tasks={tasks}
+						setTasks={setTasks}
 					/>
 					<MainSection
 						folders={folders}

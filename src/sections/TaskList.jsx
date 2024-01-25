@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function TaskList({ folders, tasks, setTasks }) {
 	return (
-		<div className="col-md-10 ml-sm-auto col-lg-10 px-4 pt-3 tasklist-colour">
+		<div className="col-md-10 ml-sm-auto col-lg-10 px-4 pt-3">
 			<ul className="list-unstyled list-group">
 				{tasks.map((task) => (
 					<IndividualTodo
