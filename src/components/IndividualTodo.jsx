@@ -2,7 +2,10 @@ import PropTypes from "prop-types";
 // update and add more features to this
 function IndividualTodo({ task }) {
 	return (
-		<li className="list-group-item d-flex justify-content-between align-items-start">
+		<li
+			className="list-group-item d-flex justify-content-between align-items-start"
+			style={{ backgroundColor: "#f9fdf3" }}
+		>
 			{/*change the style of this checkbox (copy pasted)  */}
 			<input
 				className="form-check-input me-1"

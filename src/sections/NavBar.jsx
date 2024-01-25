@@ -4,14 +4,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function NavBar({
-	navBarMessage,
-	setNavBarMessage,
-	tasks,
-	setTasks,
-	folders,
-	colourPallate,
-}) {
+function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks, folders }) {
 	const modalHeader = "Add new Task";
 	const [formData, setFormData] = useState({
 		taskName: "",

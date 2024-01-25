@@ -18,6 +18,8 @@ function NavBarMessage({ navBarMessage, setNavBarMessage }) {
 	if (isEditing) {
 		return (
 			<input
+				className="form-control"
+				style={{ maxWidth: "10rem" }}
 				value={content}
 				onChange={handleContentChange}
 				onBlur={handleBlur}
