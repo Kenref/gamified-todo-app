@@ -57,7 +57,7 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 
 	//try to remove row from the divs if not needed
 	return (
-		<div className="sidebar-colour px-3" style={{ height: "100vh" }}>
+		<div className="sidebar-colour ps-3" style={{ height: "100vh" }}>
 			{/* TODO consider adding a accented background colour for name/logo */}
 			<h4 className="pt-3">APP NAME</h4>
 			<div className="btn-group row mt-3 text-start">
@@ -69,8 +69,15 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 				<button className="btn text-start">Completed</button>
 			</div>
 			<div className="btn-group row mt-5 ">
-				<span>
+				<span className="d-flex justify-content-between align-items-center ">
 					<strong>Folders</strong>
+					<button
+						className="btn"
+						style={{ color: "#101a0f" }}
+						onClick={() => setShowModal(!showModal)}
+					>
+						{plusIcon}
+					</button>
 				</span>
 				{folders.map((folder) => (
 					<button
@@ -81,12 +88,7 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 						{folder.name}
 					</button>
 				))}
-				<button
-					className="btn text-white text-start"
-					onClick={() => setShowModal(!showModal)}
-				>
-					{plusIcon}
-				</button>
+
 				{showModal && (
 					<Modal
 						title={modalHeader}
