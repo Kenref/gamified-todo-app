@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 // update and add more features to this
-function IndividualTodo({ task }) {
+function IndividualTodo({ task, deleteTask }) {
 	return (
 		<li
 			className="list-group-item d-flex justify-content-between align-items-start"
@@ -12,10 +12,12 @@ function IndividualTodo({ task }) {
 				type="checkbox"
 				value=""
 				id="firstCheckbox"
+				onClick={() => deleteTask(task.id)}
 			/>
 			<div className="ms-2 me-auto">
 				<div className="fw-bold">{task.name}</div>
-				{task.description}
+				<div>{task.description}</div>
+				<div>{task.date}</div>
 			</div>
 		</li>
 	);

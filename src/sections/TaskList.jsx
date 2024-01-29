@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
-function TaskList({ folders, tasks, setTasks }) {
+function TaskList({ folders, tasks, setTasks, deleteTask }) {
 	return (
 		<div>
 			<ul className="list-unstyled list-group">
@@ -12,6 +12,7 @@ function TaskList({ folders, tasks, setTasks }) {
 						key={task.id}
 						id={`todo-${task.id}`} // Unique id for each todo item
 						task={task}
+						deleteTask={deleteTask}
 					/>
 				))}
 			</ul>

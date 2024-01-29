@@ -1,7 +1,7 @@
 import TaskList from "./TaskList";
 import PropTypes from "prop-types";
 
-function MainSection({ folders, tasks, setTasks, activeFolderID }) {
+function MainSection({ folders, tasks, setTasks, activeFolderID, deleteTask }) {
 	return (
 		<div className="col-md-10 ml-sm-auto col-lg-10 px-5 pt-3">
 			{activeFolderID && (
@@ -10,7 +10,12 @@ function MainSection({ folders, tasks, setTasks, activeFolderID }) {
 						"Folder not found"}
 				</h3>
 			)}
-			<TaskList folders={folders} tasks={tasks} setTasks={setTasks} />
+			<TaskList
+				folders={folders}
+				tasks={tasks}
+				setTasks={setTasks}
+				deleteTask={deleteTask}
+			/>
 		</div>
 	);
 }

@@ -18,34 +18,43 @@ function App() {
 			folderID: folders[0].id,
 			name: "testing for folder1",
 			description: "description here",
+			date: "date here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[0].id,
 			name: "tester tester",
 			description: "description here",
+			date: "date here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[0].id,
 			name: "testing ",
 			description: "description here",
+			date: "date here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[1].id,
 			name: "testing for folder2",
 			description: "description here",
+			date: "date here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[2].id,
 			name: "testing for folder3",
 			description: "description here",
+			date: "date here",
 		},
 	]);
 
 	const [activeFolderID, setActiveFolderID] = useState(null);
+
+	const deleteTask = (id) => {
+		setTasks(tasks.filter((task) => task.id !== id));
+	};
 
 	return (
 		<div className="container-fluid">
@@ -72,6 +81,7 @@ function App() {
 						tasks={tasks.filter((task) => task.folderID === activeFolderID)}
 						setTasks={setTasks}
 						activeFolderID={activeFolderID}
+						deleteTask={deleteTask}
 					/>
 				</div>
 			</div>
