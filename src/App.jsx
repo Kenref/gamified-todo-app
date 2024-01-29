@@ -3,6 +3,8 @@ import NavBar from "./sections/NavBar";
 import SideBar from "./sections/SideBar";
 import MainSection from "./sections/MainSection";
 import { v4 as uuidv4 } from "uuid";
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
 
 function App() {
 	const [navBarMessage, setNavBarMessage] = useState("Click to add message");
@@ -18,7 +20,8 @@ function App() {
 			folderID: folders[0].id,
 			name: "testing for folder1",
 			description: "description here",
-			date: "date here",
+			date: "2/2/2024",
+			time: "5:00 PM",
 		},
 		{
 			id: uuidv4(),
@@ -26,6 +29,7 @@ function App() {
 			name: "tester tester",
 			description: "description here",
 			date: "date here",
+			time: "time here",
 		},
 		{
 			id: uuidv4(),
@@ -33,6 +37,7 @@ function App() {
 			name: "testing ",
 			description: "description here",
 			date: "date here",
+			time: "time here",
 		},
 		{
 			id: uuidv4(),
@@ -40,6 +45,7 @@ function App() {
 			name: "testing for folder2",
 			description: "description here",
 			date: "date here",
+			time: "time here",
 		},
 		{
 			id: uuidv4(),
@@ -47,11 +53,13 @@ function App() {
 			name: "testing for folder3",
 			description: "description here",
 			date: "date here",
+			time: "time here",
 		},
 	]);
 
 	const [activeFolderID, setActiveFolderID] = useState(null);
 
+	// remove task function prop drilled down to IndividialTodo.jsx
 	const deleteTask = (id) => {
 		setTasks(tasks.filter((task) => task.id !== id));
 	};
@@ -83,6 +91,7 @@ function App() {
 						activeFolderID={activeFolderID}
 						deleteTask={deleteTask}
 					/>
+					<button onClick={() => console.log(tasks)}>hi</button>
 				</div>
 			</div>
 		</div>

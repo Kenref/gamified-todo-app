@@ -1,6 +1,34 @@
+import flatpickr from "flatpickr";
 import PropTypes from "prop-types";
+import { useEffect, useRef } from "react";
+
 // update and add more features to this
 function IndividualTodo({ task, deleteTask }) {
+	// flatpickr("#datepicker", {
+	// 	enableTime: true,
+	// 	dateFormat: "Y-m-d H:i",
+	// });
+
+	const datePickerRef = useRef(null);
+	const timePickerRef = useRef(null);
+
+	useEffect(() => {
+		const date = flatpickr(datePickerRef.current, {
+			altInput: true,
+			minDate: "today",
+			dateFormat: "d.m.Y",
+		});
+		const time = flatpickr(timePickerRef.current, {
+			enableTime: true,
+			noCalendar: true,
+			dateFormat: "h:iK",
+		});
+		return () => {
+			date.destroy();
+			time.destroy();
+		};
+	}, []);
+
 	return (
 		<li
 			className="list-group-item d-flex justify-content-between align-items-start"
@@ -17,7 +45,16 @@ function IndividualTodo({ task, deleteTask }) {
 			<div className="ms-2 me-auto">
 				<div className="fw-bold">{task.name}</div>
 				<div>{task.description}</div>
-				<div>{task.date}</div>
+				<input
+					className="form-control"
+					ref={datePickerRef}
+					placeholder={task.date}
+				/>
+				<input
+					className="form-control"
+					ref={timePickerRef}
+					placeholder={task.time}
+				/>
 			</div>
 		</li>
 	);
