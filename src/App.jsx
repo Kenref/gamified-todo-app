@@ -20,40 +20,35 @@ function App() {
 			folderID: folders[0].id,
 			name: "testing for folder1",
 			description: "description here",
-			date: "2/2/2024",
-			time: "5:00 PM",
+			dueDateTime: "2/2/2024",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[0].id,
 			name: "tester tester",
 			description: "description here",
-			date: "date here",
-			time: "time here",
+			dueDateTime: "dueDateTime here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[0].id,
 			name: "testing ",
 			description: "description here",
-			date: "date here",
-			time: "time here",
+			dueDateTime: "dueDateTime here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[1].id,
 			name: "testing for folder2",
 			description: "description here",
-			date: "date here",
-			time: "time here",
+			dueDateTime: "dueDateTime here",
 		},
 		{
 			id: uuidv4(),
 			folderID: folders[2].id,
 			name: "testing for folder3",
 			description: "description here",
-			date: "date here",
-			time: "time here",
+			dueDateTime: "dueDateTime here",
 		},
 	]);
 
@@ -86,7 +81,7 @@ function App() {
 					<MainSection
 						folders={folders}
 						//filter folder id to be same as activeFolderID
-						tasks={tasks.filter((task) => task.folderID === activeFolderID)}
+						tasks={tasks}
 						setTasks={setTasks}
 						activeFolderID={activeFolderID}
 						deleteTask={deleteTask}

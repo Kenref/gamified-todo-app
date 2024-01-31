@@ -15,6 +15,7 @@ function MainSection({ folders, tasks, setTasks, activeFolderID, deleteTask }) {
 				tasks={tasks}
 				setTasks={setTasks}
 				deleteTask={deleteTask}
+				activeFolderID={activeFolderID}
 			/>
 		</div>
 	);

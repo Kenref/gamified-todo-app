@@ -3,16 +3,22 @@ import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
-function TaskList({ folders, tasks, setTasks, deleteTask }) {
+function TaskList({ folders, tasks, setTasks, deleteTask, activeFolderID }) {
+	const filteredTasks = tasks.filter(
+		(task) => task.folderID === activeFolderID
+	);
+
 	return (
 		<div>
 			<ul className="list-unstyled list-group">
-				{tasks.map((task) => (
+				{filteredTasks.map((individualTask) => (
 					<IndividualTodo
-						key={task.id}
-						id={`todo-${task.id}`} // Unique id for each todo item
-						task={task}
+						key={individualTask.id}
+						id={`todo-${individualTask.id}`} // Unique id for each todo item
+						task={individualTask}
 						deleteTask={deleteTask}
+						tasks={tasks}
+						setTasks={setTasks}
 					/>
 				))}
 			</ul>

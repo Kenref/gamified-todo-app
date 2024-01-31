@@ -3,25 +3,28 @@ import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 //TODO next task is to format the date and time so that they can be added to the tasks folder in the correct format
 // update and add more features to this
-function IndividualTodo({ task, deleteTask }) {
-	const datePickerRef = useRef(null);
-	const timePickerRef = useRef(null);
+function IndividualTodo({ task, deleteTask, setTasks, tasks }) {
+	const dueDateTimePickerRef = useRef(null);
 
 	useEffect(() => {
-		const date = flatpickr(datePickerRef.current, {
+		const date = flatpickr(dueDateTimePickerRef.current, {
+			enableTime: true,
 			altInput: true,
 			minDate: "today",
-			dateFormat: "d.m.Y",
+			dateFormat: "d/m/Y",
+			onClose: (dateStr) => {
+				//FIXME there is a problem if you try to change a few at a time
+				const updatedTasks = tasks.map((currentTask) => {
+					if (currentTask.id === task.id) {
+						return { ...currentTask, dueDateTime: dateStr };
+					}
+					console.log(currentTask.dueDateTime);
+					return currentTask;
+				});
+				setTasks(updatedTasks);
+			},
 		});
-		const time = flatpickr(timePickerRef.current, {
-			enableTime: true,
-			noCalendar: true,
-			dateFormat: "h:iK",
-		});
-		return () => {
-			date.destroy();
-			time.destroy();
-		};
+		return () => date.destroy();
 	}, []);
 
 	return (
@@ -37,18 +40,13 @@ function IndividualTodo({ task, deleteTask }) {
 				id="firstCheckbox"
 				onClick={() => deleteTask(task.id)}
 			/>
-			<div className="ms-2 me-auto">
+			<div className="ms-2 me-auto row">
 				<div className="fw-bold">{task.name}</div>
 				<div>{task.description}</div>
 				<input
 					className="form-control"
-					ref={datePickerRef}
-					placeholder={task.date}
-				/>
-				<input
-					className="form-control"
-					ref={timePickerRef}
-					placeholder={task.time}
+					ref={dueDateTimePickerRef}
+					placeholder={task.dueDateTime}
 				/>
 			</div>
 		</li>
@@ -58,6 +56,7 @@ function IndividualTodo({ task, deleteTask }) {
 IndividualTodo.propTypes = {
 	task: PropTypes.object,
 	deleteTask: PropTypes.func,
+	setTasks: PropTypes.func,
 };
 
 export default IndividualTodo;
