@@ -24,6 +24,8 @@ MainSection.propTypes = {
 	folders: PropTypes.array,
 	tasks: PropTypes.array,
 	setTasks: PropTypes.func,
+	activeFolderID: PropTypes.string,
+	deleteTask: PropTypes.func,
 };
 
 export default MainSection;

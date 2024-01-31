@@ -1,14 +1,9 @@
 import flatpickr from "flatpickr";
 import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
-
+//TODO next task is to format the date and time so that they can be added to the tasks folder in the correct format
 // update and add more features to this
 function IndividualTodo({ task, deleteTask }) {
-	// flatpickr("#datepicker", {
-	// 	enableTime: true,
-	// 	dateFormat: "Y-m-d H:i",
-	// });
-
 	const datePickerRef = useRef(null);
 	const timePickerRef = useRef(null);
 
@@ -62,6 +57,7 @@ function IndividualTodo({ task, deleteTask }) {
 
 IndividualTodo.propTypes = {
 	task: PropTypes.object,
+	deleteTask: PropTypes.func,
 };
 
 export default IndividualTodo;

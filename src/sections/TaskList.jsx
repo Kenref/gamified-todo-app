@@ -22,6 +22,7 @@ function TaskList({ folders, tasks, setTasks, deleteTask }) {
 
 TaskList.propTypes = {
 	tasks: PropTypes.array,
+	deleteTask: PropTypes.func,
 };
 
 export default TaskList;
