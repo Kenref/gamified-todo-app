@@ -96,7 +96,10 @@ function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks, folders }) {
 					navBarMessage={navBarMessage}
 					setNavBarMessage={setNavBarMessage}
 				/>
-				<button className="btn" onClick={() => setShowModal(!showModal)}>
+				<button
+					className="btn navbar-add-button"
+					onClick={() => setShowModal(!showModal)}
+				>
 					Add Task
 				</button>
 				{showModal && (

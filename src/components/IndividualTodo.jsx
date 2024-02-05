@@ -28,10 +28,7 @@ function IndividualTodo({ task, deleteTask, setTasks, tasks }) {
 	}, []);
 
 	return (
-		<li
-			className="list-group-item d-flex justify-content-between align-items-start"
-			style={{ backgroundColor: "#f9fdf3" }}
-		>
+		<li className="list-group-item d-flex justify-content-between align-items-start custom-task-colour">
 			{/*change the style of this checkbox (copy pasted)  */}
 			<input
 				className="form-check-input me-1"

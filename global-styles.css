@@ -1,0 +1,47 @@
+/* change this to be a css module */
+
+:root {
+	--text: #0a0918;
+	--background: #f3f2fb;
+	--dark-background: #ecebf4;
+	--primary: #3d2dd3;
+	--secondary: #8c81ed;
+	--accent: #5e4eef;
+}
+/* colour pallate added here for easy changing */
+body {
+	color: var(--text);
+}
+
+.sidebar-colour {
+	background-color: var(--dark-background);
+}
+
+.background-colour {
+	background-color: var(--background);
+}
+
+.accent-colour {
+	background-color: var(--accent);
+}
+
+.custom-task-colour {
+	background-color: var(--dark-background);
+}
+
+.btn {
+	text-align: start;
+	transition: background-color 0.3s;
+}
+
+.btn:hover {
+	background-color: var(--secondary);
+}
+
+.navbar-add-button {
+	background-color: var(--secondary);
+}
+
+.navbar-add-button:hover {
+	background-color: var(--accent);
+}
