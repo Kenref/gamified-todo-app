@@ -18,16 +18,24 @@ function NavBarMessage({ navBarMessage, setNavBarMessage }) {
 		setIsEditing(true);
 	};
 
-	//TODO it should also work when you don't change the message
+	const handleKeyDown = (e) => {
+		if (e.key === "Enter") {
+			setIsEditing(false);
+			setNavBarMessage(content);
+		}
+	};
+
 	// Open input when editing
 	if (isEditing) {
 		return (
 			<div>
 				<input
+					autoFocus
 					className="form-control"
 					value={content}
 					onChange={handleContentChange}
 					onBlur={handleBlur}
+					onKeyDown={handleKeyDown}
 				/>
 			</div>
 		);
