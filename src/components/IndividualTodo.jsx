@@ -1,32 +1,51 @@
 import flatpickr from "flatpickr";
 import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
-//TODO next task is to format the date and time so that they can be added to the tasks folder in the correct format
 // update and add more features to this
 function IndividualTodo({ task, deleteTask, setTasks, tasks }) {
-	const dueDateTimePickerRef = useRef(null);
+	const dueDatePickerRef = useRef(null);
+	const dueTimePickerRef = useRef(null);
 
 	useEffect(() => {
-		const date = flatpickr(dueDateTimePickerRef.current, {
-			enableTime: true,
+		const date = flatpickr(dueDatePickerRef.current, {
+			enableTime: false,
 			altInput: true,
 			minDate: "today",
-			dateFormat: "d/m/Y H:i",
+			dateFormat: "d/m/Y",
 			onClose: (selectedDates, dateStr) => {
 				setTasks((currentTasks) => {
 					return currentTasks.map((currentTask) => {
 						if (currentTask.id === task.id) {
-							// Note: Depending on how flatpickr returns dateStr, you might need to adjust this.
-							// If dateStr is an array, ensure you're setting the date correctly.
-							// For a single date selection, it should be fine as is.
-							return { ...currentTask, dueDateTime: dateStr };
+							return { ...currentTask, dueDate: dateStr };
 						}
 						return currentTask;
 					});
 				});
 			},
 		});
-		return () => date.destroy();
+
+		const time = flatpickr(dueTimePickerRef.current, {
+			enableTime: true,
+			noCalendar: true,
+			altInput: true,
+			minDate: "today",
+			dateFormat: "h:iK",
+			onClose: (selectedDates, dateStr) => {
+				setTasks((currentTasks) => {
+					return currentTasks.map((currentTask) => {
+						if (currentTask.id === task.id) {
+							return { ...currentTask, dueTime: dateStr };
+						}
+						return currentTask;
+					});
+				});
+			},
+		});
+
+		return () => {
+			date.destroy();
+			time.destroy();
+		};
 	}, []);
 
 	return (
@@ -42,11 +61,20 @@ function IndividualTodo({ task, deleteTask, setTasks, tasks }) {
 			<div className="ms-2 me-auto row">
 				<div className="fw-bold">{task.name}</div>
 				<div>{task.description}</div>
-				<input
-					className="form-control"
-					ref={dueDateTimePickerRef}
-					placeholder={task.dueDateTime}
-				/>
+				<div className="container">
+					<div className="row d-inline-block">
+						<input
+							className="form-control col-5"
+							ref={dueDatePickerRef}
+							placeholder={task.dueDate}
+						/>
+						<input
+							className="form-control col-5"
+							ref={dueTimePickerRef}
+							placeholder={task.dueTime}
+						/>
+					</div>
+				</div>
 			</div>
 		</li>
 	);
