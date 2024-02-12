@@ -13,22 +13,29 @@ function NavBarMessage({ navBarMessage, setNavBarMessage }) {
 		setIsEditing(false);
 		setNavBarMessage(content);
 	};
-	//TODO add when you click outside of the box it will enter and also when you press enter it will confirm new message.
+
+	const handleOnClick = () => {
+		setIsEditing(true);
+	};
+
 	//TODO it should also work when you don't change the message
+	// Open input when editing
 	if (isEditing) {
 		return (
-			<input
-				className="form-control"
-				style={{ maxWidth: "10rem" }}
-				value={content}
-				onChange={handleContentChange}
-				onBlur={handleBlur}
-			/>
+			<div>
+				<input
+					className="form-control"
+					value={content}
+					onChange={handleContentChange}
+					onBlur={handleBlur}
+				/>
+			</div>
 		);
 	}
+	// Default state
 	return (
 		<span
-			onClick={() => setIsEditing(true)}
+			onClick={handleOnClick}
 			//set max width for mobile
 			style={{ cursor: "pointer", whiteSpace: "normal" }}
 		>

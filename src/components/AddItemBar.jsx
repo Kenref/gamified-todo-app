@@ -17,7 +17,7 @@ function AddItemBar({ tasks, setTasks }) {
 		};
 		setTasks([...tasks, newTask]);
 	};
-
+	// TODO change so that when on mobile there is a little circle with a + at bottom right for adding tasks
 	return (
 		<form className="d-flex" onSubmit={(e) => handleSubmit(e)}>
 			<input
