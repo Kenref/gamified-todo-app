@@ -11,17 +11,19 @@ function IndividualTodo({ task, deleteTask, setTasks, tasks }) {
 			enableTime: true,
 			altInput: true,
 			minDate: "today",
-			dateFormat: "d/m/Y",
-			onClose: (dateStr) => {
-				//FIXME there is a problem if you try to change a few at a time
-				const updatedTasks = tasks.map((currentTask) => {
-					if (currentTask.id === task.id) {
-						return { ...currentTask, dueDateTime: dateStr };
-					}
-					console.log(currentTask.dueDateTime);
-					return currentTask;
+			dateFormat: "d/m/Y H:i",
+			onClose: (selectedDates, dateStr) => {
+				setTasks((currentTasks) => {
+					return currentTasks.map((currentTask) => {
+						if (currentTask.id === task.id) {
+							// Note: Depending on how flatpickr returns dateStr, you might need to adjust this.
+							// If dateStr is an array, ensure you're setting the date correctly.
+							// For a single date selection, it should be fine as is.
+							return { ...currentTask, dueDateTime: dateStr };
+						}
+						return currentTask;
+					});
 				});
-				setTasks(updatedTasks);
 			},
 		});
 		return () => date.destroy();

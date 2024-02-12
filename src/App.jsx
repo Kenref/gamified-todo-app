@@ -20,7 +20,7 @@ function App() {
 			folderID: folders[0].id,
 			name: "testing for folder1",
 			description: "description here",
-			dueDateTime: "2/2/2024",
+			dueDateTime: "February 17, 2024 12:00 PM",
 		},
 		{
 			id: uuidv4(),
