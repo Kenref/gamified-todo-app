@@ -57,6 +57,7 @@ function App() {
 		},
 	]);
 
+	const [showDashboard, setShowdashboard] = useState(true);
 	const [activeFolderID, setActiveFolderID] = useState(null);
 
 	// remove task function prop drilled down to IndividialTodo.jsx
@@ -73,6 +74,7 @@ function App() {
 						folders={folders}
 						setFolders={setFolders}
 						setActiveFolderID={setActiveFolderID}
+						setShowdashboard={setShowdashboard}
 					/>
 				</div>
 				<div className="col-md-10 col-xxl-11 px-0  background-colour">
@@ -90,8 +92,10 @@ function App() {
 						setTasks={setTasks}
 						activeFolderID={activeFolderID}
 						deleteTask={deleteTask}
+						showDashboard={showDashboard}
 					/>
-					<button onClick={() => console.log(tasks)}>hi</button>
+					{/* test if date and time selectors are working */}
+					{/* <button onClick={() => console.log(tasks)}>hi</button> */}
 				</div>
 			</div>
 		</div>

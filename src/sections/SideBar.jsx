@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import Modal from "../components/Modal";
 
-function SideBar({ folders, setFolders, setActiveFolderID }) {
+function SideBar({ folders, setFolders, setActiveFolderID, setShowdashboard }) {
 	const plusIcon = (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,15 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 			<h4 className="pt-3">APP NAME</h4>
 			<div className="row mt-3 text-start">
 				<strong>Views</strong>
-				<button className="btn">Dashboard</button>
+				<button
+					className="btn"
+					onClick={() => {
+						setActiveFolderID(null);
+						setShowdashboard(true);
+					}}
+				>
+					Dashboard
+				</button>
 				<button className="btn ">Inbox</button>
 				<button className="btn">Today</button>
 				<button className="btn">All</button>
@@ -83,7 +91,10 @@ function SideBar({ folders, setFolders, setActiveFolderID }) {
 					<button
 						key={folder.id}
 						className="btn"
-						onClick={() => setActiveFolderID(folder.id)}
+						onClick={() => {
+							setActiveFolderID(folder.id);
+							setShowdashboard(false);
+						}}
 					>
 						{folder.name}
 					</button>
@@ -107,6 +118,7 @@ SideBar.propTypes = {
 	folders: PropTypes.array,
 	setFolders: PropTypes.func,
 	setActiveFolderID: PropTypes.func,
+	setShowdashboard: PropTypes.func,
 };
 
 export default SideBar;
