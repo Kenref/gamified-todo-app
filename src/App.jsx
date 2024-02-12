@@ -7,7 +7,9 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
 function App() {
-	const [navBarMessage, setNavBarMessage] = useState("Click to add message");
+	const [navBarMessage, setNavBarMessage] = useState(
+		"Today I will focus on ..."
+	);
 
 	const [folders, setFolders] = useState([
 		{ id: uuidv4(), name: "Folder 1" },

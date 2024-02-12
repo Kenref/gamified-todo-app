@@ -3,6 +3,7 @@ import NavBarMessage from "../components/NavBarMessage";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import flatpickr from "flatpickr";
 
 function NavBar({ navBarMessage, setNavBarMessage, tasks, setTasks, folders }) {
 	const modalHeader = "Add new Task";

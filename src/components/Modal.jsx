@@ -46,10 +46,11 @@ function Modal({ title, body, formID, showModal, setShowModal }) {
 }
 
 Modal.propTypes = {
-	// title: PropTypes.string,
-	// body: PropTypes.string,
+	title: PropTypes.string,
+	body: PropTypes.string,
 	showModal: PropTypes.bool,
 	setShowModal: PropTypes.func,
+	formID: PropTypes.string,
 };
 
 export default Modal;
