@@ -62,14 +62,14 @@ function IndividualTodo({ task, deleteTask, setTasks, tasks }) {
 				<div className="fw-bold">{task.name}</div>
 				<div>{task.description}</div>
 				<div className="container">
-					<div className="row d-inline-block">
+					<div className="d-inline-flex">
 						<input
-							className="form-control col-5"
+							className="form-control"
 							ref={dueDatePickerRef}
 							placeholder={task.dueDate}
 						/>
 						<input
-							className="form-control col-5"
+							className="form-control"
 							ref={dueTimePickerRef}
 							placeholder={task.dueTime}
 						/>
